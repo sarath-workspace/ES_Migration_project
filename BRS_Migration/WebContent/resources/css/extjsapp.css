@@ -1,0 +1,88 @@
+.users-alt .x-grid-row .x-grid-cell { 
+     background-color:#E0FFFF; 
+    color: Black;
+} 
+ 
+.users-alt .x-grid-row-alt .x-grid-cell { 
+    background-color: #FAFAD2; 
+    color: Black;
+}
+.departments-alt .x-grid-row .x-grid-cell { 
+     background-color: Azure; 
+     color:Black;
+} 
+ 
+.departments-alt .x-grid-row-alt .x-grid-cell { 
+    background-color: Beige ; 
+    color: Black; 
+}
+/* #images-view  */
+.x-panel-body {
+    background: white;
+    font: 11px Arial, Helvetica, sans-serif;
+}
+
+/* #images-view  */
+.thumb {
+    background: #dddddd;
+    padding: 3px;
+    padding-bottom: 0;
+    background: transparent;
+}
+
+/* #images-view  */
+.x-quirks .thumb {
+    padding-bottom: 3px;
+}
+
+/* #images-view  */
+.thumb img {
+    height: 100px;
+    width: 100px;
+}
+
+/* #images-view  */
+.thumb-wrap {
+    float: left;
+    margin: 4px;
+    margin-right: 0;
+    padding: 5px;
+}
+
+/* #images-view  */
+.thumb-wrap span {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    /* for ie to ensure that the text is centered */
+    width: 100px;
+}
+
+/* #images-view  */
+.x-item-over {
+    border: 1px solid #dddddd;
+    background: graytext repeat-x left top;
+    padding: 4px;
+    font-color:red;
+}
+
+/*#images-view .x-item-selected {
+    background: #eff5fb url(icons/selected.gif) no-repeat right bottom;
+    border: 1px solid #99bbe8;
+    padding: 4px;
+}*/
+
+/* #images-view  */
+.x-item-selected .thumb {
+    background: transparent;
+}
+
+/* #images-view  */
+.loading-indicator {
+    font-size: 11px;
+    background-image: url(resources/images/loading.gif);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 20px;
+    margin: 10px;
+}

@@ -1,0 +1,8 @@
+{
+success: true,
+config: [{
+		name: 'BRS Prod URL', value: 'http://10.214.160.35:8185/tipinterface-b35'
+	},{
+		name: 'BRS Dev URL', value: 'http://10.214.160.35:8185/tipinterface-b35'
+	}]
+}

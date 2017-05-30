@@ -1,0 +1,10 @@
+{
+success: true,
+dataview: [{
+		name: 'Analysis', url: 'http://www.freeiconspng.com/uploads/seo-analysis-icon-16.png', size: '123', lastmod : 'sdd'
+	},{
+		name: 'A | B Test', url: 'https://cdn2.iconfinder.com/data/icons/usability-test-02/100/jan_yulck-53-512.png', size: '123', lastmod : 'sdd'
+	},{
+		name: 'Reports', url: 'http://www.freeiconspng.com/uploads/call-report-icon-3.png', size: '123', lastmod : 'sdd'
+	}]
+}

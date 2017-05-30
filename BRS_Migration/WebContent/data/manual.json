@@ -1,0 +1,12 @@
+{
+success: true,
+dataview: [{
+		name: 'New Testing', url: 'https://openclipart.org/image/2400px/svg_to_png/245288/test-tube-1-2016032922.png', component: 'ESMG.view.components.NewTest', lastmod : 'sdd'
+	},{
+		name: 'Analysis', url: 'https://cdn3.iconfinder.com/data/icons/digital-marketing/512/search_magnifier_lens_loupe_flat_icon-512.png', component: 'ESMG.view.department.List', lastmod : 'sdd'
+	},{
+		name: 'A | B Test', url: 'https://cdn2.iconfinder.com/data/icons/usability-test-02/100/jan_yulck-53-512.png', component: 'ESMG.view.department.List', lastmod : 'sdd'
+	},{
+		name: 'Reports', url: 'http://www.freeiconspng.com/uploads/call-report-icon-3.png', component: 'ESMG.view.department.List', lastmod : 'sdd'
+	}]
+}
