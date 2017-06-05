@@ -7,7 +7,9 @@ Ext.define('ESMG.controller.Config', {
 	stores: ['Config','Menu'],
 	views: ['general.Header', 
 	        'general.Config', 
-	        'general.Menu']
+	        'general.Menu',
+	        'basic.Panel']
+
 	},
 //	init: function() {
 //		this.control({

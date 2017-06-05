@@ -2,14 +2,17 @@
  * 
  */
 Ext.define('ESMG.view.general.NewTab' ,{
-	extend: 'Ext.panel.Panel',
+	extend: 'ESMG.view.basic.Panel',
 	alias : 'widget.defaulttab',
 	title : 'new tab',
 	requires: ['ESMG.view.general.ManualView','ESMG.view.general.AutomaticView'],
 	closable: true,
 	items : [{
+		xtype : 'esmgpanel',
+		height : 30
+	},{
 		xtype : 'displayfield',
-		value : 'Please select a Item from the Menu to continue.'
+		value : '<b>Please select a Item from the Menu to continue.</b>'
 	},{
 		xtype : 'panel',
 		border : false,

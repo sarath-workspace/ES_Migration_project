@@ -2,7 +2,7 @@
  * 
  */
 Ext.define('ESMG.view.general.Header', {
-	extend: 'Ext.panel.Panel',
+	extend: 'ESMG.view.basic.Panel',
 	alias : 'widget.header1',
 	requires: ['ESMG.view.general.Config'],
 //	layout: 'hbox',

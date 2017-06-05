@@ -2,7 +2,7 @@
  * 
  */
 Ext.define('ESMG.view.components.NewTest' ,{
-	extend: 'Ext.panel.Panel',
+	extend: 'ESMG.view.basic.Panel',
 	alias : 'widget.newtest',
 	title : 'New Testing',
 	autoScroll : true,
