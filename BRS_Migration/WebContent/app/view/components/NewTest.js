@@ -4,7 +4,7 @@
 Ext.define('ESMG.view.components.NewTest' ,{
 	extend: 'ESMG.view.basic.Panel',
 	alias : 'widget.newtest',
-	title : 'New Testing',
+	title : 'Multi Query Testing',
 	autoScroll : true,
 //	requires: ['ESMG.view.general.NewTab'],
 	items:[{

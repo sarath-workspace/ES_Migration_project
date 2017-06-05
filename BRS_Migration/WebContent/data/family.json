@@ -1,0 +1,10 @@
+{
+success: true,
+family : [
+	{name: 'derwent', value: 'derwent-family'},
+	{name: 'inpadoc', value: 'inpadoc-family'},
+	{name: 'Application Number', value: 'onePerApplication'},
+	{name: 'citations', value: 'citations'},
+	{name: 'dpcicitations', value: 'dpcicitations'},
+	]
+}

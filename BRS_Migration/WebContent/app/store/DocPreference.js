@@ -1,17 +1,17 @@
 /**
  * 
  */
-Ext.define('ESMG.store.Config', {
+Ext.define('ESMG.store.DocPreference', {
 	extend: 'Ext.data.Store',
 	model: 'ESMG.model.NameValue',
 	proxy: {
 	type: 'ajax',
 	api: {
-		read: 'data/config.json'
+		read: 'data/document_preference.json'
 	},
 	reader: {
 		type: 'json',
-		root: 'config',
+		root: 'preference',
 		successProperty: 'success'
 		}
 	}

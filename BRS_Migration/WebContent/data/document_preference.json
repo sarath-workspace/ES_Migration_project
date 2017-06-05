@@ -1,0 +1,9 @@
+{
+success: true,
+preference : [
+			{name: 'Basic',				value: 'basic'},
+			{name: 'Earliest', 			value: 'earliest'},
+			{name: 'Latest', 			value: 'latest'},
+			{name: 'Rank By Authority',	value: 'rank_by_authority'},
+		]
+}

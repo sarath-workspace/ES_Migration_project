@@ -1,17 +1,17 @@
 /**
  * 
  */
-Ext.define('ESMG.store.Config', {
+Ext.define('ESMG.store.Authority', {
 	extend: 'Ext.data.Store',
 	model: 'ESMG.model.NameValue',
 	proxy: {
 	type: 'ajax',
 	api: {
-		read: 'data/config.json'
+		read: 'data/authority.json'
 	},
 	reader: {
 		type: 'json',
-		root: 'config',
+		root: 'authority',
 		successProperty: 'success'
 		}
 	}

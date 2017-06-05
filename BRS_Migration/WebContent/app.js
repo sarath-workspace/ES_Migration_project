@@ -13,11 +13,13 @@
 // DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
 //@require @packageOverrides
 
+Ext.Loader.setPath('Ext.ux', 'app/ux');
+
 Ext.application({
     name: 'ESMG',
 	appFolder:'app',
 	controllers: [
-        'Users', 'Departments', 'Config', 'TabPanel', 'ViewModel', 'NewTest'
+        'Users', 'Departments', 'Config', 'TabPanel', 'ViewModel', 'NewTest', 'BaseController'
     ],
     autoCreateViewport: true
 });

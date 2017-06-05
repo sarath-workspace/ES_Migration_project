@@ -29,6 +29,7 @@ Ext.define('ESMG.controller.ViewModel', {
 		tabPanel.activeTab.close();
 		tabPanel.setActiveTab(activeTabIndex);
 		tabPanel.activeTab.closable = true;
+		tabPanel.getActiveTab().setTitle(record.data.name);
 	},
 });
 

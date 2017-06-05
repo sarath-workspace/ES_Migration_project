@@ -1,17 +1,17 @@
 /**
  * 
  */
-Ext.define('ESMG.store.Config', {
+Ext.define('ESMG.store.DataType', {
 	extend: 'Ext.data.Store',
-	model: 'ESMG.model.NameValue',
+	model: 'ESMG.model.MatInfo',
 	proxy: {
 	type: 'ajax',
 	api: {
-		read: 'data/config.json'
+		read: 'data/datatype.json'
 	},
 	reader: {
 		type: 'json',
-		root: 'config',
+		root: 'datatype',
 		successProperty: 'success'
 		}
 	}

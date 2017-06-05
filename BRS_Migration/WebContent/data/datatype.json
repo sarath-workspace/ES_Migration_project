@@ -1,0 +1,14 @@
+{
+success: true,
+datatype: [
+			{name: 'DWPI',				value: 'dwpi', 				matinfo: 'non-mat'},
+			{name: 'DWPI_CPI', 			value: 'dwpi_cpi', 			matinfo: 'non-mat'},
+			{name: 'FLD', 				value: 'fld', 				matinfo: 'non-mat'},
+			{name: 'FLD_DWPI', 			value: 'fld_dwpi', 			matinfo: 'non-mat'},
+			{name: 'FLD_DWPI_CPI', 		value: 'fld_dwpi_cpi', 		matinfo: 'non-mat'},
+			{name: 'DWPI_CPI_MAT', 		value: 'dwpi_cpi_mat', 		matinfo: 'mat'},
+			{name: 'FLD_MAT', 			value: 'fld_MAT', 			matinfo: 'mat'},
+			{name: 'FLD_DWPI_MAT', 		value: 'fld_dwpi_MAT', 		matinfo: 'mat'},
+			{name: 'FLD_DWPI_CPI_MAT', 	value: 'fld_dwpi_cpi_MAT', 	matinfo: 'mat'},
+		]
+}
