@@ -25,6 +25,7 @@ Ext.define('ESMG.view.components.TestForm' ,{
 		},{
 			xtype: 'radiogroup',
 	        fieldLabel: 'Collection Type',
+	        itemId : 'col_type',
 	        items: [{
 	        	boxLabel: 'MAT',
 	        	name: 'mat_info',
@@ -39,6 +40,7 @@ Ext.define('ESMG.view.components.TestForm' ,{
 			xtype: 'combobox',
 			fieldLabel: 'Collections',
 			name : 'collections',
+			itemId : 'collections',
 			multiSelect : true,
 		    store: Ext.create('ESMG.store.Collections',{autoLoad:true}),
 		    queryMode: 'local',
@@ -50,6 +52,7 @@ Ext.define('ESMG.view.components.TestForm' ,{
 		},{
 			xtype: 'combobox',
 	        fieldLabel: 'Search On Datatype',
+	        itemId : 'search_data_type',
 	        store: Ext.create('ESMG.store.DataType',{autoLoad:true}),
 	        queryMode: 'local',
 		    displayField: 'name',

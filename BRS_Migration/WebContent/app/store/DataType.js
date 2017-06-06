@@ -14,5 +14,13 @@ Ext.define('ESMG.store.DataType', {
 		root: 'datatype',
 		successProperty: 'success'
 		}
-	}
+	},
+    filters : [{
+    	property: 'matinfo',
+        value   : /non-mat/
+    }],
+    sorters: [{
+    	property : 'name',
+    	direction: 'ASC'
+    }]
 });

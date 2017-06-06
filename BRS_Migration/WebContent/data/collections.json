@@ -76,7 +76,7 @@ collections : [
 	{name: 'mxgmat', value: 'MGMV', matinfo: 'mat'},
 	{name: 'mxamat', value: 'MAMV', matinfo: 'mat'},
 	{name: 'ruamat', value: 'RUMA', matinfo: 'mat'},
-	{name: 'ruumat', value: 'RUMU', matinfo: 'non-mat'},
+	{name: 'ruumat', value: 'RUMU', matinfo: 'mat'},
 	{name: 'auabib', value: 'AUBA', matinfo: 'non-mat'},
 	{name: 'augbib', value: 'AUBG', matinfo: 'non-mat'},
 	{name: 'auibib', value: 'AUBU', matinfo: 'non-mat'},

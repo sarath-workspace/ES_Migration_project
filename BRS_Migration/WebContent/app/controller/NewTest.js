@@ -19,7 +19,10 @@ Ext.define('ESMG.controller.NewTest', {
 			},
 			'testform form #prefered_doc' : {
 				change : this.onPreferedDocSelect
-			} 
+			},
+			'testform form #col_type' : {
+				change : this.applyMatInfoFilter
+			}
 		});
 	},
 	onSelChange: function(radioGroup, newValue, oldValue, eOpts) {
@@ -28,18 +31,47 @@ Ext.define('ESMG.controller.NewTest', {
 	onFamilySelect: function (FamilyFilter, newValue, oldValue, eOpts) {
 		debugger;
 		if('citations' == newValue) {
-			FamilyFilter.up('form').down('#citation').show();
+			this.updateVisibility(FamilyFilter,'citation',true);
+			this.updateVisibility(FamilyFilter,'authority',false);
+			this.updateVisibility(FamilyFilter,'prefered_doc',false);
 		} else if ('dpcicitations' == newValue) {
-			FamilyFilter.up('form').down('#citation').show();
-			FamilyFilter.up('form').down('#dwpi_basic').show();
+			this.updateVisibility(FamilyFilter,'citation',true);
+			this.updateVisibility(FamilyFilter,'dwpi_basic',true);
+			this.updateVisibility(FamilyFilter,'authority',false);
+			this.updateVisibility(FamilyFilter,'prefered_doc',false);
 		} else {
-			FamilyFilter.up('form').down('#prefered_doc').show();
+			this.updateVisibility(FamilyFilter,'prefered_doc',true);
+			this.updateVisibility(FamilyFilter,'citation',false);
 		}
 	},
 	onPreferedDocSelect: function (FamilyFilter, newValue, oldValue, eOpts) {
 		if('rank_by_authority' == newValue) {
-			FamilyFilter.up('form').down('#authority').show();
+			this.updateVisibility(FamilyFilter,'authority',true);
+			this.updateVisibility(FamilyFilter,'citation',false);
+		} else {
+			this.updateVisibility(FamilyFilter,'authority',false);
 		}
+	},
+	updateVisibility: function (FamilyFilter, itemId, show) {
+		var comp = FamilyFilter.up('form').down('#'+itemId);
+		if(show) {
+			comp.show();
+			comp.allowBlank = false;
+		} else {
+			comp.hide();
+			comp.allowBlank = true;
+		}
+	},
+	applyMatInfoFilter: function ( radioCmp, newValue, oldValue, eOpts ) {
+		debugger;
+		radioCmp.up('form').down('#collections').store.clearFilter(true);
+		radioCmp.up('form').down('#search_data_type').store.clearFilter(true);
+//		radioCmp.up('form').down('#collections').store.filterBy(function(record, id) {
+//            return record.data.matinfo == newValue;
+//        });
+//		radioCmp.up('form').down('#search_data_type').store.filterBy(function(record, id) {
+//            return record.data.matinfo == newValue;
+//        });
 	}
 });
 
