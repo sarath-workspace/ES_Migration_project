@@ -20,10 +20,11 @@ Ext.define('ESMG.view.components.TestForm' ,{
 			xtype: 'textfield',
 	        fieldLabel: 'Test Query',
 	        name: 'test_name',
-	        anchor    : '100%'
+	        anchor    : '100%',
+	        allowBlank: false,
 		},{
 			xtype: 'radiogroup',
-	        fieldLabel: 'Two Columns',
+	        fieldLabel: 'Collection Type',
 	        items: [{
 	        	boxLabel: 'MAT',
 	        	name: 'mat_info',
@@ -43,7 +44,9 @@ Ext.define('ESMG.view.components.TestForm' ,{
 		    queryMode: 'local',
 		    displayField: 'name',
 		    valueField: 'name',
-		    anchor    : '100%'
+		    anchor    : '100%',
+		    editable : false,
+		    allowBlank: false,
 		},{
 			xtype: 'combobox',
 	        fieldLabel: 'Search On Datatype',
@@ -52,13 +55,14 @@ Ext.define('ESMG.view.components.TestForm' ,{
 		    displayField: 'name',
 		    valueField: 'value',
 	        name: 'doc_type',
+		    editable : false,
 	        anchor    : '100%'
 		},{
 			xtype : 'fieldset',
-			title : 'filter specification',
+			title : '<b>Filter Specification</b>',
 			items : [{
 				xtype: 'radiogroup',
-		        fieldLabel: 'Two Columns',
+		        fieldLabel: 'Filter Type',
 		        items: [{
 		        	boxLabel: 'Collapse',
 		        	name: 'base_filter',
@@ -73,87 +77,73 @@ Ext.define('ESMG.view.components.TestForm' ,{
 				xtype : 'combobox',
 				fieldLabel: 'By Family',
 				name : 'family',
+				itemId : 'familyspec',
 				store: Ext.create('ESMG.store.Family',{autoLoad:true}),
 				queryMode: 'local',
 			    displayField: 'name',
 			    valueField: 'value',
+			    editable : false,
 			    anchor    : '100%'
 			},{
 				xtype : 'combobox',
-				fieldLabel: 'Preferred Document',
+				fieldLabel: 'Prefered Document',
+				itemId : 'prefered_doc',
 				name : 'doc_pref',
 				store: Ext.create('ESMG.store.DocPreference',{autoLoad:true}),
 				queryMode: 'local',
 			    displayField: 'name',
 			    valueField: 'value',
 			    anchor    : '100%',
-//			    disabled : true
+			    editable : false,
+	            hidden : true
 			},{
 				xtype: 'fieldcontainer',
 		        layout: 'hbox',
+		        itemId : 'citation',
+	            hidden : true,
 		        items: [{
-//		        	xtype: 'checkboxgroup',
-//		            fieldLabel: 'citation',
-//		            items: [{ 
 		        		xtype : 'checkbox',
 		            	boxLabel: 'forward', 
 		            	name: 'fcitation', 
 		            	inputValue: 'fcitation', 
 		            	checked: true,
-//		            	margin : '0px 5px 0px 0px',
 		            	flex : 1
 		            },{ 
 		            	xtype : 'checkbox',
 		            	boxLabel: 'backward', 
 		            	name: 'bcitation', 
 		            	inputValue: 'bcitation',
-//		            	margin : '0px 5px 0px 0px',
 		            	flex : 1
 		            },{
 		            	xtype : 'checkbox',
 		            	boxLabel: 'dwpi basic', 
 		            	name: 'dcitation', 
 		            	inputValue: 'dwbcitation',
-//		            	margin : '0px 5px 0px 0px',
+		            	itemId : 'dwpi_basic',
+		            	hidden : true,
 		            	flex : 1
 		            },{
 		            	xtype: 'textfield',
 		            	value : '500',
 		            	readOnly : true,
 		            	width : 70,
-//		            	margin : '0px 5px 0px 0px',
 		            	flex : 1
 		            }]
 		    },{
 	            xtype: 'multiselectfield',
 	            name: 'itemselector',
 	            ddReorder : true,
+	            itemId: 'authority',
 	            height : 200,
-//	            id: 'itemselector-field',
 	            anchor: '100%',
-	            fieldLabel: 'Collections',
-	            imagePath: '../ux/images/',
+	            fieldLabel: 'Authority and Type',
 	            store: Ext.create('ESMG.store.Authority',{autoLoad:true}),
 	            displayField: 'name',
 	            valueField: 'value',
-//	            value: ['3', '4', '6'],
-	            allowBlank: false,
-//	            msgTarget: 'side',
-	            fromTitle: 'Available',
-	            toTitle: 'Selected'
+	            hidden : true
+//	            allowBlank: false,
 			}]
-//		}]
-		}
-
-//		,{
-//			xtype: 'textfield',
-//	        fieldLabel: 'Filter',
-//	        name: 'filters',
-//	        anchor    : '100%'
-//		}
-		
-		],
-		
+		}],
 		buttons: [{
 			text : 'Reset',
 			handler: function() {
