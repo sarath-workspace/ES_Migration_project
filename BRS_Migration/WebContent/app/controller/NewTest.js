@@ -7,7 +7,8 @@ Ext.define('ESMG.controller.NewTest', {
 		stores: ['Collections','Family','DataType','DocPreference','Authority'],
 		views : ['components.TestPanel',
 		         'components.NewTest',
-		         'components.TestForm']
+		         'components.TestForm',
+		         'components.CollectionCombo']
 	},
 	init: function() {
 		this.control({

@@ -5,7 +5,7 @@ Ext.define('ESMG.view.components.TestForm' ,{
 	extend: 'ESMG.view.basic.Panel',
 	alias : 'widget.testform',
 	title : 'Single Query Testing',
-	requires: ['ESMG.store.Collections','Ext.ux.form.ItemSelector'],
+	requires: ['ESMG.store.Collections','Ext.ux.form.ItemSelector','ESMG.view.components.CollectionCombo'],
 	items : [{
 		xtype : 'form',
 		border : false,
@@ -49,6 +49,8 @@ Ext.define('ESMG.view.components.TestForm' ,{
 		    anchor    : '100%',
 		    editable : false,
 		    allowBlank: false,
+		},{
+			xtype : 'collectioncombo'
 		},{
 			xtype: 'combobox',
 	        fieldLabel: 'Search On Datatype',
