@@ -3,7 +3,7 @@ success: true,
 collections : [
 	{name: 'gbapps', value: 'GBA', matinfo: 'non-mat'},
 	{name: 'usapps', value: 'USA', matinfo: 'non-mat'},
-	{name: 'usgrants', value: 'USG', matinfo: 'non-mat'},
+		{name: 'usgrants', value: 'USG', matinfo: 'non-mat'},
 	{name: 'epapps', value: 'EPA', matinfo: 'non-mat'},
 	{name: 'epgrants', value: 'EPB', matinfo: 'non-mat'},
 	{name: 'deapps', value: 'DEA', matinfo: 'non-mat'},

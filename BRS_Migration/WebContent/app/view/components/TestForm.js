@@ -5,10 +5,14 @@ Ext.define('ESMG.view.components.TestForm' ,{
 	extend: 'ESMG.view.basic.Panel',
 	alias : 'widget.testform',
 	title : 'Single Query Testing',
-	requires: ['ESMG.store.Collections','Ext.ux.form.ItemSelector','ESMG.view.components.CollectionCombo'],
+	requires: ['ESMG.store.Collections','Ext.ux.form.ItemSelector','ESMG.view.components.CollectionCombo',
+		'ESMG.view.components.ColTypeRadio','ESMG.view.components.DocumentTypeCombo','ESMG.view.components.FamilySpec',
+		'ESMG.view.components.PreferedDocCombo','ESMG.view.components.SingleReport'],
+	layout : 'hbox',
 	items : [{
 		xtype : 'form',
 		border : false,
+		flex : 1,
 		width : 400,
 		maxHeight : 800,
 		maxWidth : 700,
@@ -19,49 +23,18 @@ Ext.define('ESMG.view.components.TestForm' ,{
 		items : [{
 			xtype: 'textfield',
 	        fieldLabel: 'Test Query',
-	        name: 'test_name',
+	        name: 'testquery',
 	        anchor    : '100%',
 	        allowBlank: false,
+	        itemId : 'testquery'
 		},{
-			xtype: 'radiogroup',
-	        fieldLabel: 'Collection Type',
-	        itemId : 'col_type',
-	        items: [{
-	        	boxLabel: 'MAT',
-	        	name: 'mat_info',
-	        	inputValue: 'mat',
-	        },{
-	        	boxLabel: 'NON-MAT',
-	        	name: 'mat_info',
-	        	inputValue: 'non-mat',
-	        	checked: true
-	        }]
+			xtype : 'coltyperadio',
 		},{
-			xtype: 'combobox',
-			fieldLabel: 'Collections',
-			name : 'collections',
-			itemId : 'collections',
-			multiSelect : true,
-		    store: Ext.create('ESMG.store.Collections',{autoLoad:true}),
-		    queryMode: 'local',
-		    displayField: 'name',
-		    valueField: 'name',
-		    anchor    : '100%',
-		    editable : false,
-		    allowBlank: false,
+			xtype : 'documentTypeCombo',
+			store: Ext.create('ESMG.store.DataType',{autoLoad:true}),
 		},{
-			xtype : 'collectioncombo'
-		},{
-			xtype: 'combobox',
-	        fieldLabel: 'Search On Datatype',
-	        itemId : 'search_data_type',
-	        store: Ext.create('ESMG.store.DataType',{autoLoad:true}),
-	        queryMode: 'local',
-		    displayField: 'name',
-		    valueField: 'value',
-	        name: 'doc_type',
-		    editable : false,
-	        anchor    : '100%'
+			xtype : 'collectioncombo',
+			store: Ext.create('ESMG.store.Collections',{autoLoad:true,}),
 		},{
 			xtype : 'fieldset',
 			title : '<b>Filter Specification</b>',
@@ -79,28 +52,11 @@ Ext.define('ESMG.view.components.TestForm' ,{
 		        	inputValue: 'expand'
 		        }]
 			},{
-				xtype : 'combobox',
-				fieldLabel: 'By Family',
-				name : 'family',
-				itemId : 'familyspec',
+				xtype : 'familyspec',
 				store: Ext.create('ESMG.store.Family',{autoLoad:true}),
-				queryMode: 'local',
-			    displayField: 'name',
-			    valueField: 'value',
-			    editable : false,
-			    anchor    : '100%'
 			},{
-				xtype : 'combobox',
-				fieldLabel: 'Prefered Document',
-				itemId : 'prefered_doc',
-				name : 'doc_pref',
+				xtype : 'preferedocombo',
 				store: Ext.create('ESMG.store.DocPreference',{autoLoad:true}),
-				queryMode: 'local',
-			    displayField: 'name',
-			    valueField: 'value',
-			    anchor    : '100%',
-			    editable : false,
-	            hidden : true
 			},{
 				xtype: 'fieldcontainer',
 		        layout: 'hbox',
@@ -146,18 +102,27 @@ Ext.define('ESMG.view.components.TestForm' ,{
 	            displayField: 'name',
 	            valueField: 'value',
 	            hidden : true
-//	            allowBlank: false,
 			}]
 		}],
 		buttons: [{
 			text : 'Reset',
 			handler: function() {
+				debugger;
 	            this.up('form').getForm().reset();
+	            var ctrlRef = ESMG.getApplication().getController('NewTest');
+	            ctrlRef.updateVisibility(this,'#citation',false);
+	            ctrlRef.updateVisibility(this,'preferedocombo',false);
+	            ctrlRef.updateVisibility(this,'#authority',false);
 	        }
 		},{
 			text : 'Submit',
 	        formBind: true,
 	        disabled: true,
 		}]
+	},{
+		xtype : 'singlepagereport',
+		header : false,
+		flex : 2,
+		anchor    : '100%',
 	}]
 })

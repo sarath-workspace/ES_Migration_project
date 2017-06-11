@@ -7,7 +7,6 @@ Ext.define('ESMG.view.components.CollectionCombo' ,{
 	fieldLabel: 'Collections',
 	name : 'collections',
 	multiSelect : true,
-    store: Ext.create('ESMG.store.Collections',{autoLoad:true}),
     queryMode: 'local',
     displayField: 'name',
     valueField: 'name',

@@ -7,7 +7,8 @@ Ext.define('ESMG.controller.BaseController', {
 		stores: ['Config','Menu'],
 		views: ['basic.Panel',
 		        'basic.TabPanel',
-		        'basic.ComboBox']
+		        'basic.ComboBox',
+		        'basic.RadioGroup']
 	}
 });
 

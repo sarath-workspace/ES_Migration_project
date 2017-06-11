@@ -8,22 +8,33 @@ Ext.define('ESMG.controller.NewTest', {
 		views : ['components.TestPanel',
 		         'components.NewTest',
 		         'components.TestForm',
-		         'components.CollectionCombo']
+		         'components.CollectionCombo',
+		         'components.ColTypeRadio',
+		         'components.DocumentTypeCombo',
+		         'components.FamilySpec',
+		         'components.PreferedDocCombo',
+		         'components.SingleReport']
 	},
 	init: function() {
 		this.control({
+			'testform form #testquery' : {
+				change : this.onQueryChange
+			},
 			'newtest radiogroup' : {
 				change : this.onSelChange
 			},
-			'testform form #familyspec' : {
+			'testform form familyspec' : {
 				change : this.onFamilySelect
 			},
-			'testform form #prefered_doc' : {
+			'testform form preferedocombo' : {
 				change : this.onPreferedDocSelect
 			},
-			'testform form #col_type' : {
+			'testform form coltyperadio' : {
 				change : this.applyMatInfoFilter
-			}
+			},
+//			'collectioncombo' : {
+//				render : this.loadCollections
+//			}
 		});
 	},
 	onSelChange: function(radioGroup, newValue, oldValue, eOpts) {
@@ -32,29 +43,29 @@ Ext.define('ESMG.controller.NewTest', {
 	onFamilySelect: function (FamilyFilter, newValue, oldValue, eOpts) {
 		debugger;
 		if('citations' == newValue) {
-			this.updateVisibility(FamilyFilter,'citation',true);
-			this.updateVisibility(FamilyFilter,'authority',false);
-			this.updateVisibility(FamilyFilter,'prefered_doc',false);
+			this.updateVisibility(FamilyFilter,'#citation',true);
+			this.updateVisibility(FamilyFilter,'#authority',false);
+			this.updateVisibility(FamilyFilter,'preferedocombo',false);
 		} else if ('dpcicitations' == newValue) {
-			this.updateVisibility(FamilyFilter,'citation',true);
-			this.updateVisibility(FamilyFilter,'dwpi_basic',true);
-			this.updateVisibility(FamilyFilter,'authority',false);
-			this.updateVisibility(FamilyFilter,'prefered_doc',false);
+			this.updateVisibility(FamilyFilter,'#citation',true);
+			this.updateVisibility(FamilyFilter,'#dwpi_basic',true);
+			this.updateVisibility(FamilyFilter,'#authority',false);
+			this.updateVisibility(FamilyFilter,'preferedocombo',false);
 		} else {
-			this.updateVisibility(FamilyFilter,'prefered_doc',true);
-			this.updateVisibility(FamilyFilter,'citation',false);
+			this.updateVisibility(FamilyFilter,'preferedocombo',true);
+			this.updateVisibility(FamilyFilter,'#citation',false);
 		}
 	},
 	onPreferedDocSelect: function (FamilyFilter, newValue, oldValue, eOpts) {
 		if('rank_by_authority' == newValue) {
-			this.updateVisibility(FamilyFilter,'authority',true);
-			this.updateVisibility(FamilyFilter,'citation',false);
+			this.updateVisibility(FamilyFilter,'#authority',true);
+			this.updateVisibility(FamilyFilter,'#citation',false);
 		} else {
-			this.updateVisibility(FamilyFilter,'authority',false);
+			this.updateVisibility(FamilyFilter,'#authority',false);
 		}
 	},
 	updateVisibility: function (FamilyFilter, itemId, show) {
-		var comp = FamilyFilter.up('form').down('#'+itemId);
+		var comp = FamilyFilter.up('form').down(itemId);
 		if(show) {
 			comp.show();
 			comp.allowBlank = false;
@@ -64,15 +75,24 @@ Ext.define('ESMG.controller.NewTest', {
 		}
 	},
 	applyMatInfoFilter: function ( radioCmp, newValue, oldValue, eOpts ) {
+		radioCmp.up('form').down('collectioncombo').store.clearFilter(true);
+		radioCmp.up('form').down('documentTypeCombo').store.clearFilter(true);
+		radioCmp.up('form').down('collectioncombo').store.filterBy(function(record, id) {
+            return record.data.matinfo == newValue.mat_info;
+        });
+		radioCmp.up('form').down('documentTypeCombo').store.filterBy(function(record, id) {
+            return record.data.matinfo == newValue.mat_info;
+        });
+	},
+	onQueryChange : function ( testQueryCmp, newValue, oldValue, eOpts ) {
 		debugger;
-		radioCmp.up('form').down('#collections').store.clearFilter(true);
-		radioCmp.up('form').down('#search_data_type').store.clearFilter(true);
-//		radioCmp.up('form').down('#collections').store.filterBy(function(record, id) {
-//            return record.data.matinfo == newValue;
-//        });
-//		radioCmp.up('form').down('#search_data_type').store.filterBy(function(record, id) {
-//            return record.data.matinfo == newValue;
-//        });
+		testQueryCmp.value
+	},
+	updateReport : function ( radioCmp, newValue, oldValue, eOpts ) {
+		t
 	}
+//	loadCollections : function ( collectionCmp, eOpts ) {
+//		debugger;
+//	}
 });
 

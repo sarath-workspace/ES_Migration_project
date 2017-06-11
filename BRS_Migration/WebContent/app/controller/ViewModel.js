@@ -20,7 +20,6 @@ Ext.define('ESMG.controller.ViewModel', {
 	},
 	
 	handleSelect: function (ViewModel, record) {
-		debugger;
 		var tabPanel = ViewModel.up('tabpanel');
 		var newTab = Ext.create(record.data.component);
 		var activeTabIndex = tabPanel.items.findIndex('id', tabPanel.getActiveTab().id);
@@ -32,4 +31,3 @@ Ext.define('ESMG.controller.ViewModel', {
 		tabPanel.getActiveTab().setTitle(record.data.name);
 	},
 });
-
