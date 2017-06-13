@@ -75,13 +75,14 @@ Ext.define('ESMG.controller.NewTest', {
 		}
 	},
 	applyMatInfoFilter: function ( radioCmp, newValue, oldValue, eOpts ) {
-		radioCmp.up('form').down('collectioncombo').store.clearFilter(true);
-		radioCmp.up('form').down('documentTypeCombo').store.clearFilter(true);
-		radioCmp.up('form').down('collectioncombo').store.filterBy(function(record, id) {
-            return record.data.matinfo == newValue.mat_info;
-        });
-		radioCmp.up('form').down('documentTypeCombo').store.filterBy(function(record, id) {
-            return record.data.matinfo == newValue.mat_info;
+		this.loadCombo( radioCmp.up('form').down('collectioncombo'),newValue);
+		this.loadCombo( radioCmp.up('form').down('documentTypeCombo'),newValue);
+	},
+	loadCombo : function (component, changedVal) {
+		component.setValue([]);
+		component.store.clearFilter(true);
+		component.store.filterBy(function(record, id) {
+            return record.data.matinfo == changedVal.mat_info;
         });
 	},
 	onQueryChange : function ( testQueryCmp, newValue, oldValue, eOpts ) {

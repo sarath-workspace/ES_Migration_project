@@ -9,16 +9,17 @@ Ext.define('ESMG.controller.Config', {
 		        'general.Config', 
 		        'general.Menu']
 	},
-//	init: function() {
-//		this.control({
-//			'departmentlist': {
-//				itemclick: this.showDepartmentUser
-//			}
-//		});
-//	},
-//	showDepartmentUser: function(grid, model, itemEl, idx, e, eOpts) {
+	init: function() {
+		this.control({
+			'menulist': {
+				select : this.onMenuSelect
+			}
+		});
+	},
+	showDepartmentUser: function( menuCmp, record, index, eOpts ) {
 //		var app = this.application;
 //		app.fireEvent('departmentselected', app, model);
-//	}
+		
+	}
 });
 
